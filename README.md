@@ -53,7 +53,7 @@ You just need to upload the **content** of the `public` folder to your server an
 TODO
 
 
-##DISCLAIMER
+## DISCLAIMER
 This script is provided as is.
 
 If you intend to publicly distribute the url of your podcast, be sure to have the right to do so with the .mp3 file you share/publish.
@@ -67,5 +67,5 @@ There are many things left to do, such as :
 - Support of video podcasts
 - ...
 
-##LICENSE
+## LICENSE
 GPLv3
