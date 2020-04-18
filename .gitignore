@@ -1,3 +1,4 @@
 /public/index.xml
 .DS_Store
 .idea
+/public/files/*.mp3
