@@ -6,11 +6,13 @@
     require_once('vendor/id3/ID3TagsReader.php');
 
     /** CONFIGURATION */
+    $podcastUrl = "https://mydoma.in/podcast";
+
     $podcastInfo = [
         'title' => "My Podcast",
         'subtitle' => "Podcast about...",
         'description' => "This is the description of my podcast",
-        'link' => "https://mydoma.in/podcast",
+        'link' => $podcastUrl,
         'language' => 'fr-fr',
         'copyright' => 'Copyright myCopyright 2001',
         'webmaster_mail' => 'user@mydoma.in',
@@ -31,7 +33,6 @@
 
     /** DO NOT EDIT BELOW THIS, UNLESS YOU KNOW WHAT YOU'RE DOING */
     $id3Reader = new ID3TagsReader(null);
-    //$id3Info = $id3Reader->getTagsInfo(__DIR__.$filesFolder.'test.mp3');
 
     ob_start();
 ?>
@@ -90,7 +91,7 @@
                             <link><?php echo $baseUrl.$entry; ?></link>
                             <guid><?php echo $baseUrl.$entry; ?></guid>
                             <description><![CDATA[<?php echo $fileId3Info['Title'] ?>]]></description>
-                            <enclosure url="<?php echo $baseUrl.'/files/'.$entry ?>" length="<?php echo filesize($dir.$entry) ?>" type="audio/mpeg"/>
+                            <enclosure url="<?php echo $baseUrl.$entry ?>" length="<?php echo filesize($dir.$entry) ?>" type="audio/mpeg"/>
                             <category><![CDATA[<?php echo $fileId3Info['Genre'] ?>]]></category>
                             <pubDate><?php echo date('r'); ?></pubDate>
 
@@ -98,7 +99,7 @@
                             <itunes:summary>
                                 <![CDATA[<?php echo $fileId3Info['Title'] ?>]]>
                             </itunes:summary>
-                            <itunes:image href="http://www.example.com/image3000x3000.png"/>
+                            <itunes:image href="<?php echo $podcastInfo['link'].'/image.jpg'; ?>"/>
                             <itunes:explicit><?php echo $podcastInfo['explicit_content']; ?></itunes:explicit>
                         </item>
                         <?php
@@ -115,6 +116,7 @@
     $str = ob_get_clean();
     $str = '<?xml version="1.0" encoding="UTF-8"?>'.$str;
 
-    file_put_contents(__DIR__.'/public/'.$xmlFileName,$str);
+    $ouputPath = __DIR__.'/public/'.$xmlFileName;
+    file_put_contents($ouputPath,$str);
 
-    echo 'OK : ' . __DIR__.'/'.$xmlFileName;
+    echo 'OK : ' . $ouputPath;
