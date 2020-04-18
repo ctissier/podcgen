@@ -52,12 +52,13 @@ You just need to upload the **content** of the `public` folder to your server an
 ### Second way: Online execution of the script
 TODO
 
+## ID3 Tags reader
+For the reading of the ID3 Tags, I used the source code of this tutorial [http://www.script-tutorials.com/id3-tags-reader-with-php/](http://www.script-tutorials.com/id3-tags-reader-with-php/)
 
 ## DISCLAIMER
 This script is provided as is.
 
 If you intend to publicly distribute the url of your podcast, be sure to have the right to do so with the .mp3 file you share/publish.
-
 
 ## TODO
 There are many things left to do, such as :
